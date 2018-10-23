@@ -429,13 +429,17 @@ public class Main extends javax.swing.JFrame {
             if (!textWT.getText().equals("") && !textWE.getText().equals("")) {
                 wt = dicMana.chuanhoa(textWT.getText());
                 we = dicMana.chuanhoa(textWE.getText());
-                for (int i = 0; i < dicMana.list.size(); i++) {
+         
+                int i = 0;
+                while(i < dicMana.list.size()){
                     if (wt.equals(dicMana.list.get(i).getWordTarget())) {
                         JOptionPane.showMessageDialog(null, "Từ đã tồn tại!");
                         check = true;
                         break;
                     }
+                    i++;
                 }
+                
                 if (check == false) {
                     Word words = new Word(wt, we);
                     dicMana.list.add(words);
