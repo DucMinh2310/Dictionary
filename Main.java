@@ -418,28 +418,27 @@ public class Main extends javax.swing.JFrame {
     private void addWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWordActionPerformed
         // TODO add your handling code here:
         String wt, we;
-        JTextField textWT = new JTextField();
-        JTextField textWE = new JTextField();
+        JTextField TF1 = new JTextField();
+        JTextField TF2 = new JTextField();
         Object[] message = {
-            "Input the new word: ", textWT,
-            "Input word's explain: ", textWE,};
+            "Input the new word: ", TF1,
+            "Input word's explain: ", TF2,};
         int option = JOptionPane.showConfirmDialog(null, message, "Input new word", JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION) {
             boolean check = false;
-            if (!textWT.getText().equals("") && !textWE.getText().equals("")) {
-                wt = dicMana.chuanhoa(textWT.getText());
-                we = dicMana.chuanhoa(textWE.getText());
-         
-                int i = 0;
-                while(i < dicMana.list.size()){
-                    if (wt.equals(dicMana.list.get(i).getWordTarget())) {
+            if (!TF1.getText().equals("") && !TF2.getText().equals("")) {
+                wt = dicMana.chuanhoa(TF1.getText());
+                we = dicMana.chuanhoa(TF2.getText());
+				int i = 0;
+				while( i < dicMana.list.size()){
+					if (wt.equals(dicMana.list.get(i).getWordTarget())) {
                         JOptionPane.showMessageDialog(null, "Từ đã tồn tại!");
                         check = true;
                         break;
                     }
-                    i++;
-                }
-                
+					i++;
+				}
+					
                 if (check == false) {
                     Word words = new Word(wt, we);
                     dicMana.list.add(words);
@@ -450,12 +449,12 @@ public class Main extends javax.swing.JFrame {
                 }
             }
 
-        } else if (textWT.getText().equals("")) {
+        } else if (TF1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please input word!");
-            textWT.requestFocus();
+            TF1.requestFocus();
         } else {
             JOptionPane.showMessageDialog(null, "Please input explain!");
-            textWE.requestFocus();
+            TF2.requestFocus();
         }
     }//GEN-LAST:event_addWordActionPerformed
 
